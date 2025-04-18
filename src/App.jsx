@@ -6,25 +6,34 @@ import { PureExample } from "./components/PureExample";
 const LazyImageLoader = React.lazy(() =>
   import("./components/ImageLazyLoader")
 );
+import DataComponent from "./components/DataComponent";
+import withLoading from "./utils/withLoading";
+
+const EnhancedComponent = withLoading(DataComponent);
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [text, setText] = useState("User");
-  const [show, setShow] = useState(false);
+  // const [count, setCount] = useState(0);
+  // const [text, setText] = useState("User");
+  // const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
   return (
     <>
       {/* use of React.memo */}
-      <Greet name={text} />
+      {/* <Greet name={text} /> */}
 
       {/* <PureExample name={text} /> */}
 
-      <p>Count: {count}</p>
-      <button onClick={() => setCount((count) => count + 1)}>Count++</button>
-      <button onClick={() => setText("Vijay")}>Change Name</button>
-      <button onClick={() => setShow((show) => !show)}>Load</button>
+      {/* <p>Count: {count}</p> */}
+      {/* <button onClick={() => setCount((count) => count + 1)}>Count++</button>
+      <button onClick={() => setText("Vijay")}>Change Name</button> */}
+      {/* <button onClick={() => setShow((show) => !show)}>Load</button>
       <Suspense fallback={<div>Loading..</div>}>
         {show && <LazyImageLoader />}
-      </Suspense>
+      </Suspense> */}
+      <button onClick={() => setLoading((loading) => !loading)}>
+        ShowLoading
+      </button>
+      <EnhancedComponent loading={loading}/>
     </>
   );
 }
