@@ -6,11 +6,14 @@ import Products from "./components/Products";
 import AboutPage from "./pages/AboutPage";
 import FeaturedProducts from "./components/FeaturedProducts";
 import NewProducts from "./components/NewProducts";
+import DemoCustomHook from "./components/DemoCustomHook";
+import { useOnlineStatus } from "./hooks/useOnlineStatus.js";
 
 const App2 = () => {
+  const isOnline = useOnlineStatus();
   return (
     <>
-      <Navbar />
+      {/* <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="about" element={<AboutPage />} />
@@ -18,7 +21,9 @@ const App2 = () => {
           <Route path="featured" element={<FeaturedProducts />} />
           <Route path="new" element={<NewProducts />} />
         </Route>
-      </Routes>
+      </Routes> */}
+      {/* <DemoCustomHook /> */}
+      {isOnline ? <p>Online</p> : <p>Offline</p>}
     </>
   );
 };
