@@ -9,6 +9,7 @@ const Cart = () => {
       <h3 className="text-center">
         Total Items: {products.length} (Rs. {total})/-
       </h3>
+      <p>Lets go</p>
     </div>
   );
 };
